@@ -66,4 +66,4 @@ jobs:
           aws-region: ${{ env.AWS_REGION }}
           
       - name: Deploy to ECS
-        run: aws ecs update-service --cluster {{env.ECS_CLUSTER_NAME}} --service {{env.ECS_SERVICE_NAME}} --task-definition {{ECS_TASK_DEFI}} --force-new-deployment
+        run: aws ecs update-service --cluster {{env.ECS_CLUSTER_NAME}} --service {{env.ECS_SERVICE_NAME}} --task-definition {{env.ECS_TASK_DEFI}} --force-new-deployment
