@@ -42,15 +42,14 @@ jobs:
       - name: jar파일 확인
         run: ls -al && ls -al build && ls -al build/libs
 
-  #     - name: ECR login
-  #       run: aws ecr get-login-password | docker login --username AWS --password-stdin 534420079206.dkr.ecr.ap-northeast-2.amazonaws.com
+      - name: ECR login
+        run: aws ecr get-login-password | docker login --username AWS --password-stdin 534420079206.dkr.ecr.us-east-1.amazonaws.com
       
+      - name: Container build
+        run: docker build -t ${{ env.ECR_URL }} .
         
-  #     - name: Container build
-  #       run: docker build -t ${{ env.ECR_URL }} .
-        
-  #     - name: Container Push
-  #       run : docker push ${{ env.ECR_URL }}
+      - name: Container Push
+        run : docker push ${{ env.ECR_URL }}
   # CD:
   #   name: Deploy
   #   runs-on: ubuntu-latest
